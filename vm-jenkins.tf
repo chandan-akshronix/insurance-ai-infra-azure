@@ -1,6 +1,6 @@
 resource "azurerm_public_ip" "jenkins_public_ip" {
   name                = "jenkins-${terraform.workspace}-public-ip"
-  resource_group_name = azurerm_resource_group.devops.name
+  resource_group_name = azurerm_resource_group.insurance.name
   location            = var.location
   allocation_method   = "Static"
   sku                 = "Standard"
@@ -9,7 +9,7 @@ resource "azurerm_public_ip" "jenkins_public_ip" {
 resource "azurerm_network_interface" "jenkins_nic" {
   name                = "jenkins-${terraform.workspace}-nic"
   location            = var.location
-  resource_group_name = azurerm_resource_group.devops.name
+  resource_group_name = azurerm_resource_group.insurance.name
 
   ip_configuration {
     name                          = "jenkins-ip"
@@ -26,7 +26,7 @@ resource "azurerm_network_interface_security_group_association" "jenkins_nsg_ass
 
 resource "azurerm_linux_virtual_machine" "jenkins_vm" {
   name                = "jenkins-${terraform.workspace}"
-  resource_group_name = azurerm_resource_group.devops.name
+  resource_group_name = azurerm_resource_group.insurance.name
   location            = var.location
   size                = "Standard_B2ms"
   admin_username      = var.admin_username

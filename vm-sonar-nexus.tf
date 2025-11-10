@@ -1,6 +1,6 @@
 resource "azurerm_public_ip" "sonar_public_ip" {
   name                = "sonar-${terraform.workspace}-public-ip"
-  resource_group_name = azurerm_resource_group.devops.name
+  resource_group_name = azurerm_resource_group.insurance.name
   location            = var.location
   allocation_method   = "Static"
   sku                 = "Standard"
@@ -9,7 +9,7 @@ resource "azurerm_public_ip" "sonar_public_ip" {
 resource "azurerm_network_interface" "sonar_nic" {
   name                = "sonar-${terraform.workspace}-nic"
   location            = var.location
-  resource_group_name = azurerm_resource_group.devops.name
+  resource_group_name = azurerm_resource_group.insurance.name
 
   ip_configuration {
     name                          = "sonar-ip"
@@ -26,7 +26,7 @@ resource "azurerm_network_interface_security_group_association" "sonar_nsg_assoc
 
 resource "azurerm_linux_virtual_machine" "sonar_vm" {
   name                = "sonar-${terraform.workspace}"
-  resource_group_name = azurerm_resource_group.devops.name
+  resource_group_name = azurerm_resource_group.insurance.name
   location            = var.location
   size                = "Standard_B2ms"
   admin_username      = var.admin_username

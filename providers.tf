@@ -7,15 +7,15 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "tfstate-rg"
-    storage_account_name = "tfstateacct123"
+    resource_group_name  = "akshronix-insurance-ai"
+    storage_account_name = "akshronixinsuranceaidev"
     container_name       = "tfstate"
-    key                  = "azure-devops.tfstate"
+    key                  = "dev.tfstate"
   }
 }
 
 provider "azurerm" {
   features {}
 
-subscription_id = "927fddb8-9af9-4841-9ddd-633d0716ce3b"
+subscription_id = "8cf6da15-cf39-49b0-b38c-6de93497ff68"
 }
