@@ -1,5 +1,5 @@
 variable "location" {
-  default = "South India"
+  default = "Central India"
 }
 
 variable "admin_username" {
