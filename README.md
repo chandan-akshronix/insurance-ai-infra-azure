@@ -87,7 +87,7 @@ Provisions all defined resources automatically in Azure.
 8. **Destroy Infrastructure**
    ```bash
     terraform destroy -auto-approve
-Destroy all the resources that has been created with the help of terraform
+Destroy all the resources that has been created with the help of terraform.
 
 
 
